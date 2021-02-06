@@ -1,0 +1,26 @@
+footer {
+  width: 100%;
+  height: 10%;
+  background-color: grey;
+  color: white;
+  display: flex;
+  justify-content: left; }
+  footer ul {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+    font-size: larger; }
+    footer ul li {
+      list-style: none;
+      position: relative; }
+      footer ul li a {
+        text-decoration: none;
+        color: white; }
+      footer ul li ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: -30px;
+        justify-content: space-around; }

@@ -1,0 +1,31 @@
+footer{
+    width:100%;
+    height:10%;
+    background-color:grey;
+    color: white;
+    display:flex;
+    justify-content:left;
+    ul{
+        width:30%;
+        height:100%;
+        display:flex;
+        justify-content:space-between;
+        margin-top: 2%;
+        font-size: larger;
+        li{
+            list-style: none;
+            position:relative;
+            a{
+                text-decoration: none;
+                color:white;   
+            }
+            ul{
+                display:flex;
+                flex-direction: column;
+                position:absolute;
+                top:-30px;
+                justify-content:space-around;
+            }
+        }
+    }
+}
