@@ -4,7 +4,8 @@ footer {
   background-color: grey;
   color: white;
   display: flex;
-  justify-content: left; }
+  justify-content: left;
+  margin-top: 2%; }
   footer ul {
     width: 30%;
     height: 100%;
