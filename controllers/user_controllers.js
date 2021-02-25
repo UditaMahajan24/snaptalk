@@ -73,12 +73,14 @@ module.exports.create=function(req,res){
 
 // for getting data of sign in
 module.exports.createSession=function(req,res){
+    req.flash('success','Logged in successfuly');
     return res.redirect('/');
 }
 
 //for signing out
 module.exports.destroySession=function(req,res){
     req.logout();
+    req.flash('success','you have logged out successfuly');
     return res.redirect('/');
 }
 

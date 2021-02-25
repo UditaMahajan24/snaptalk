@@ -9,24 +9,31 @@ module.exports.create=function(req,res){
             console.log('error in creating a post');
             return;
         }
+        req.flash('success','Post created');
        return res.redirect('back');
     });
 }
 // to delete a post created by a user
-module.exports.destroy=function(req,res){
-    Post.findById(req.params.id,function(err,post){
-        //.id means converting the object id into string
+module.exports.destroy=async function(req,res){
+    try{
+   let post= await Post.findById(req.params.id);
         if(post.user==req.user.id)
         {
             post.remove();
-            Comment.deleteMany({post:req.params.id},function(err){
+            await Comment.deleteMany({post:req.params.id});
+            req.flash('success','post deleted');
                 return res.redirect('back');
-            });
         }
         else
         {
             return res.redirect('back');
         }
-    });
 }
 
+catch(err){
+    console.log('Error',err);
+    return;
+    
+}
+
+}

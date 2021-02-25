@@ -11,6 +11,8 @@ const passportLocal=require('./config/passport-local-strategy');
 const { Connection } = require('mongoose');
 const MongoStore=require('connect-mongo')(session);
 const sassMiddleware=require('node-sass-middleware');// another way of writting css code
+const flash=require('connect-flash');
+const Customware=require('./config/middleware');
 app.use(sassMiddleware({
   src:'./assests/scss',
   dest:'./assests/css',
@@ -59,6 +61,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);// to send the data of user to views page
 //use express router
+app.use(flash());// using flash to display notifications
+app.use(Customware.setFlash);
 app.use('/', require('./routes/index'));
 
 
