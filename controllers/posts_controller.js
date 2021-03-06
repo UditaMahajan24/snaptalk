@@ -1,17 +1,33 @@
 const Post= require('../models/post');
 const Comment=require('../models/comments');
-module.exports.create=function(req,res){
-    Post.create({
-        content:req.body.content,
-        user:req.user._id 
-     },function(err,post){
-        if(err){
-            console.log('error in creating a post');
-            return;
+module.exports.create= async function(req,res){
+    try{
+      let post= await  Post.create({
+            content:req.body.content,
+            user:req.user._id 
+        });
+        if(req.xhr)
+        {
+            // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
+            post = await post.populate('user').execPopulate();
+
+            return res.status(200).json({
+                  data:{
+                      post:post
+                  },
+                  message:"post created"
+            });
         }
         req.flash('success','Post created');
        return res.redirect('back');
-    });
+    
+    }
+   
+     catch(err){
+        req.flash('error',err);
+        return res.redirect('back');
+     }
+        
 }
 // to delete a post created by a user
 module.exports.destroy=async function(req,res){
@@ -21,6 +37,16 @@ module.exports.destroy=async function(req,res){
         {
             post.remove();
             await Comment.deleteMany({post:req.params.id});
+            if(req.xhr)
+            {
+
+                return res.status(200).json({
+                    data:{
+                        post_id:req.params.id
+                    },
+                    message:"post deleted successfully"
+                });
+            }
             req.flash('success','post deleted');
                 return res.redirect('back');
         }

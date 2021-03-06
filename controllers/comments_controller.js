@@ -11,6 +11,17 @@ module.exports.create= async function(req,res){
             });
                 post.comments.push(comment);
                 post.save();
+                if (req.xhr){
+                      // Similar for comments to fetch the user's id!
+                comment = await comment.populate('user', 'name').execPopulate();
+    
+                    return res.status(200).json({
+                        data: {
+                            comment: comment
+                        },
+                        message: "comment created!"
+                    });
+                }
                 req.flash('success','comment added');
                 res.redirect('/');
         }
@@ -20,20 +31,35 @@ module.exports.create= async function(req,res){
         return;
     }
 }
-module.exports.destroy=function(req,res){
-    Comment.findById(req.params.id,function(err,comment){
+module.exports.destroy= async function(req,res){
+    try{
+    let comment=await Comment.findById(req.params.id);
         if(comment.user==req.user.id)
         {
         //if the user who has commented is requesting 
         let postId=comment.post;
         comment.remove();
-        Post.findByIdAndUpdate(postId,{$pull:{comments:req.param.id}},function(err,post){//finding comments in post and removing it
+      let post= Post.findByIdAndUpdate(postId,{$pull:{comments:req.param.id}});//finding comments in post and removing it
+            // send the comment id which was deleted back to the views
+             if (req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "Post deleted"
+                });
+            }
+            
             req.flash('success','comment deleted');
             return res.redirect('back');
-        });
         } 
         else{
             return res.redirect('back');
         }  
-    });
+}
+catch(err){
+    req.flash('error', err);
+    return;
+}
+
 }
