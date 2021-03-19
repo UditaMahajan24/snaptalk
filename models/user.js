@@ -11,7 +11,7 @@ email:{
 },
 password:{
     type:String,
-    required:true
+    required:true,
 },
 name:{
  type:String,
@@ -33,6 +33,9 @@ let storage = multer.diskStorage({
     }
   })
 
+// static files
+userSchema.statics.uploadedAvtar=multer({ storage: storage }).single('avtar');
+userSchema.statics.avtarPath=AVTAR_PATH;
 
 const User= mongoose.model('User',userSchema);
 module.exports=User;
