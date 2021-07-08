@@ -211,7 +211,9 @@ console.log(accesstoken);
   accesstoken = await accesstoken.populate('user','email').execPopulate();
   console.log(accesstoken.user.email);
   passwordMailer.newpassword(accesstoken);
-  res.redirect('/');
+  res.render('mailsend',{
+    title:"mail send",
+    });
 }
 catch(err){
     console.log("error is",err);
@@ -244,7 +246,6 @@ module.exports.resetPassword=async function(req,res){
     let passwordResetToken =await AccessToken.findOne(AccessToken.findOne({ token: req.params.accessToken }));
     if (!passwordResetToken || passwordResetToken.isValid==false) {
         console.log("wrong");
-        req.flash('success','Password changed');
         return res.redirect('back');
       }
       passwordResetToken  = await passwordResetToken.populate('user').execPopulate(); 
@@ -253,9 +254,8 @@ module.exports.resetPassword=async function(req,res){
       await passwordResetToken.user.save();
       await passwordResetToken.updateOne({isValid:false});
      console.log(passwordResetToken.isValid);
-      return res.render('mailsend',{
-        title:"Mail send",
-        });;
+     req.flash('success','Password changed');
+      return res.redirect('/');
 }
 module.exports.resetPage=function(req,res){
     console.log(req.query.accessToken);
