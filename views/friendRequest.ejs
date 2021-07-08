@@ -1,0 +1,31 @@
+<%- include('_header');%>
+<link rel="stylesheet" href="/css/friend_request.css">
+<section id="request">
+<%if(locals.user){%>
+    <h1>Friend Request</h1>
+    <div id="request_result">
+    <% if(user.friend_request.length == 0) {%>
+      <p id="no_friend">No more requests left !!!!</p>
+      <% }else{%>
+    <%for(u of user.friend_request){%>
+        <div class="info">
+          <div class="avtar">
+          <%if(u.from_user.avtar==undefined){%>
+           <img src="/images/my_image.png">
+            <% }else{%>
+              <img src="<%=u.from_user.avtar%>"></span> 
+             <%}%>
+            </div> 
+          <div class="name"><a href="/user/profile/<%=u.from_user.id %>"><%=u.from_user.name%></a></div>
+          <div class="add"><button><a class="toggle-friend-btn" href="/friends/add-friend/?id=<%=u.from_user.id %>/<%=u._id%>">
+            Add Friend
+          </a></button>
+        </div>
+          <div class="delete"><button><a class="toggle-friend-btn" href="/friends/delete-friend-request/?id=<%=u.from_user.id %>/<%=u._id%>">
+          Delete</button></div> 
+        </div>
+        <%}%>
+        <%}%>
+      </div>
+    <% } %>
+</section>

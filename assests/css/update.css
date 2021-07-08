@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+#profile {
+  padding-top: 1px;
+  padding-left: 3%;
+  background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+  min-height: 720px; }
+  #profile p {
+    margin-left: 38%;
+    margin-bottom: 1%;
+    font-size: 50px;
+    font-family: Apple Chancer;
+    font-weight: 600; }
+  #profile #container {
+    margin-left: 35%; }
+    #profile #container #image-container {
+      margin-left: 10%;
+      margin-bottom: 2%; }
+      #profile #container #image-container img {
+        width: 130px;
+        border-radius: 100%; }
+    #profile #container form label {
+      font-size: 25px; }
+    #profile #container form input[type="file"] {
+      color: transparent;
+      margin-left: 12%;
+      margin-bottom: 2%; }
+    #profile #container form input[type=file]::file-selector-button {
+      border-radius: 5px;
+      background-image: url("/images/4K-3.jpg");
+      background-size: cover;
+      border-radius: 5px;
+      outline: none;
+      width: fit-content;
+      text-align: center; }
+    #profile #container form input[type="text"], #profile #container form input[type="email"] {
+      width: 35%;
+      margin-top: 10px;
+      margin-bottom: 2%;
+      border: none;
+      background-color: transparent;
+      border-bottom: 3px solid #1fa3bb;
+      font-size: 20px;
+      outline: none; }
+    #profile #container form input[type="submit"] {
+      margin-left: 12%;
+      margin-top: 1px;
+      background-image: url("/images/4K-3.jpg");
+      background-size: cover;
+      font-size: 20px;
+      display: block; }
+  @media screen and (max-width: 1300px) {
+    #profile p {
+      margin-left: 34%; }
+    #profile #container {
+      margin-left: 30%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 40%; } }
+  @media screen and (max-width: 1100px) {
+    #profile p {
+      margin-left: 32%; }
+    #profile #container {
+      margin-left: 28%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 50%; } }
+  @media screen and (max-width: 920px) {
+    #profile p {
+      margin-left: 25%; }
+    #profile #container {
+      margin-left: 24%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 50%; } }
+  @media screen and (max-width: 760px) {
+    #profile #container {
+      margin-left: 24%; }
+      #profile #container #image-container {
+        margin-left: 15%;
+        margin-bottom: 2%; }
+        #profile #container #image-container img {
+          width: 130px;
+          border-radius: 100%; }
+      #profile #container form input[type="file"] {
+        margin-left: 17%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 65%; }
+      #profile #container form input[type="submit"] {
+        margin-left: 20%; } }
+  @media screen and (max-width: 650px) {
+    #profile p {
+      margin-left: 20%; }
+    #profile #container {
+      margin-left: 20%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 65%; } }
+  @media screen and (max-width: 550px) {
+    #profile p {
+      margin-left: 15%; }
+    #profile #container {
+      margin-left: 14%; }
+      #profile #container #image-container {
+        margin-left: 20%;
+        margin-bottom: 2%; }
+        #profile #container #image-container img {
+          width: 130px;
+          border-radius: 100%; }
+      #profile #container form input[type="file"] {
+        margin-left: 22%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 75%; } }
+  @media screen and (max-width: 480px) {
+    #profile p {
+      margin-left: 12%; }
+    #profile #container {
+      margin-left: 10%; }
+      #profile #container #image-container {
+        margin-left: 20%;
+        margin-bottom: 2%; }
+        #profile #container #image-container img {
+          width: 110px;
+          border-radius: 100%; }
+      #profile #container form input[type="file"] {
+        margin-left: 22%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 80%; } }
+  @media screen and (max-width: 430px) {
+    #profile p {
+      margin-left: 12%;
+      font-size: 40px; }
+    #profile #container {
+      margin-left: 5%; }
+      #profile #container #image-container {
+        margin-left: 20%;
+        margin-bottom: 2%; }
+        #profile #container #image-container img {
+          width: 110px;
+          border-radius: 100%; }
+      #profile #container form input[type="file"] {
+        margin-left: 22%; }
+      #profile #container form input[type="text"], #profile #container form input[type="email"] {
+        width: 80%;
+        font-size: 15px; }
+      #profile #container form input[type="submit"] {
+        font-size: 15px;
+        margin-left: 25%; } }
+  @media screen and (max-width: 350px) {
+    #profile {
+      width: 100%;
+      padding-right: 0%; }
+      #profile p {
+        margin-left: 12%;
+        font-size: 35px;
+        margin-bottom: 5%; }
+      #profile #container {
+        margin-left: 2%; }
+        #profile #container #image-container {
+          margin-left: 20%;
+          margin-bottom: 2%; }
+          #profile #container #image-container img {
+            width: 110px;
+            border-radius: 100%; }
+        #profile #container form input[type="file"] {
+          margin-left: 20%;
+          width: 45%; }
+        #profile #container form input[type="text"], #profile #container form input[type="email"] {
+          width: 90%;
+          font-size: 15px; }
+        #profile #container form input[type="submit"] {
+          font-size: 15px;
+          margin-left: 25%; } }

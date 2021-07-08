@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+#friend {
+  padding-top: 6%;
+  padding-left: 3%;
+  background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+  min-height: 100vh; }
+  #friend h3 {
+    display: none; }
+  #friend .no-friends {
+    font-size: 30px;
+    text-align: center; }
+  #friend #friend_img {
+    width: 30%;
+    font-size: 120px;
+    font-family: Lobster;
+    display: inline-block;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 20%;
+    margin-left: 8%;
+    margin-right: 8%; }
+  #friend #my_friends {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 2%;
+    overflow: hidden;
+    width: 40%;
+    padding: 30px;
+    min-height: 500px; }
+    #friend #my_friends div {
+      display: flex;
+      width: 90%;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 3%; }
+      #friend #my_friends div .image {
+        width: 30%; }
+        #friend #my_friends div .image img {
+          width: 80px;
+          border-radius: 100%;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.6); }
+      #friend #my_friends div .friends-item {
+        width: 60%;
+        text-decoration: none;
+        color: black;
+        font-size: 30px;
+        margin-right: 5%; }
+      #friend #my_friends div button {
+        border-radius: 5px;
+        background-image: url("/images/4K-3.jpg");
+        background-size: cover;
+        border-radius: 5px;
+        outline: none;
+        width: 40%;
+        text-align: center; }
+        #friend #my_friends div button a {
+          text-decoration: none;
+          color: black;
+          font-size: larger; }
+  @media screen and (max-width: 1500px) {
+    #friend #my_friends {
+      width: 45%;
+      padding-left: 20px;
+      padding-right: 20px; } }
+  @media screen and (max-width: 1500px) {
+    #friend #friend_img {
+      margin-left: 5%;
+      font-size: 100px; }
+    #friend #my_friends {
+      width: 45%;
+      padding-left: 10px;
+      padding-right: 10px; } }
+  @media screen and (max-width: 1180px) {
+    #friend #friend_img {
+      margin-left: 4%;
+      font-size: 100px; }
+    #friend #my_friends {
+      width: 50%; } }
+  @media screen and (max-width: 1060px) {
+    #friend #friend_img {
+      margin-left: 1%;
+      font-size: 100px; }
+    #friend #my_friends {
+      width: 60%;
+      padding-left: 0px;
+      padding-right: 0px; } }
+  @media screen and (max-width: 920px) {
+    #friend h3 {
+      display: block;
+      font-family: Lobster;
+      margin-left: 35%;
+      margin-top: 4%; }
+    #friend #friend_img {
+      display: none; }
+    #friend #my_friends {
+      width: 60%;
+      padding-left: 0px;
+      padding-right: 0px; } }
+  @media screen and (max-width: 830px) {
+    #friend #my_friends {
+      width: 70%;
+      padding-left: 0px;
+      padding-right: 0px; } }
+  @media screen and (max-width: 720px) {
+    #friend #my_friends {
+      width: 85%;
+      padding-left: 0px;
+      padding-right: 0px; } }
+  @media screen and (max-width: 640px) {
+    #friend h3 {
+      margin-top: 8%; }
+    #friend #my_friends {
+      width: 85%;
+      padding-left: 0px;
+      padding-right: 0px; } }
+  @media screen and (max-width: 600px) {
+    #friend h3 {
+      margin-top: 8%; }
+    #friend #my_friends {
+      width: 85%;
+      padding-left: 0px;
+      padding-right: 0px; }
+      #friend #my_friends div {
+        width: 100%; }
+        #friend #my_friends div .image {
+          width: 30%; }
+          #friend #my_friends div .image img {
+            width: 60px; }
+        #friend #my_friends div .friends-item {
+          font-size: 20px;
+          width: 40%; }
+        #friend #my_friends div button a {
+          text-decoration: none;
+          color: black;
+          font-size: 15px; } }
+  @media screen and (max-width: 500px) {
+    #friend h3 {
+      margin-top: 8%; }
+    #friend #my_friends div .image {
+      width: 30%; }
+      #friend #my_friends div .image img {
+        width: 60px; }
+    #friend #my_friends div .friends-item {
+      font-size: 20px;
+      width: 60%; }
+    #friend #my_friends div button a {
+      font-size: 12px; } }
+  @media screen and (max-width: 450px) {
+    #friend h3 {
+      margin-top: 10%; }
+    #friend #my_friends div {
+      width: 95%; }
+      #friend #my_friends div .friends-item {
+        font-size: 15px;
+        width: 60%; } }
+  @media screen and (max-width: 410px) {
+    #friend h3 {
+      margin-top: 10%; }
+    #friend #my_friends {
+      width: 94%; }
+      #friend #my_friends div {
+        width: 95%; }
+        #friend #my_friends div .friends-item {
+          font-size: 15px;
+          width: 60%;
+          margin-left: 10%; } }
+  @media screen and (max-width: 340px) {
+    #friend h3 {
+      font-size: 35px;
+      margin-top: 20%;
+      margin-left: 30%; }
+    #friend #my_friends {
+      width: 96%; }
+      #friend #my_friends div {
+        width: 95%; }
+        #friend #my_friends div .image {
+          width: 25%; }
+          #friend #my_friends div .image img {
+            width: 40px; }
+        #friend #my_friends div .friends-item {
+          font-size: 15px;
+          width: 60%;
+          margin-left: 10%; } }

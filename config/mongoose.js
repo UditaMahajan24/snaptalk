@@ -1,8 +1,9 @@
 //require the library
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 //connect to the database
-mongoose.connect('mongodb://localhost/codeial_development');
+mongoose.connect('mongodb+srv://${process.env.mongo_db}@cluster0.kzjhl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 //acquire the connection to check if it is connected 
 const db=mongoose.connection;

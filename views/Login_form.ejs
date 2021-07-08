@@ -1,0 +1,100 @@
+
+<link rel="stylesheet" href="/css/login.css">
+<h1 id="logo"> CODEIAL </h1>
+<p id="new_start"> Start a new journey</p>
+<div class="sliding">
+<div class="left">
+    <div class="centered">
+        <h2>WELCOME</h2>
+        <p>Snap Talk</p>
+      </div>
+</div>
+<div class="wrapper">
+    <div class="title-text">
+   <div class="title login">Login Form </div>
+   <div class="title signup">Signup Form</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+        <input type="radio" name="slider" id="login" checked>
+        <input type="radio" name="slider" id="signup">
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">signup</label>
+        <div class="slide-tab"></div>
+        </div>
+        <div class="form-inner">
+            <form action="/user/create-session" class="login" autocomplete="off" method="post">
+                <div class="field">
+                <input type="email" name="email" placeholder="Email Address" required>
+               </div>
+               <div class="field">
+                <input type="password" name="password" placeholder="Password"  required>
+               </div>
+               <div class="pass-link"><a href="/user/check">Forgot password?</a></div>
+               <div class="field">
+                <input type="submit" value="Login">
+                </div>
+                <h3>OR</h3>
+                <div class="field">
+                   <button> <a href="/user/auth/google"><i class="fa fa-google" aria-hidden="true"></i> Log in with Google</a></button>
+                 </div>
+                <div class="signup-link">Not a member?<a href="#">Signup now</a></div>
+            </form>
+                
+                <form action="/user/create" class="signup" method="post" id="signupform">
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Your name" required>
+                       </div>
+                    <div class="field">
+                    <input type="email" name="email" placeholder="Email Address"  required>
+                   </div>
+                   <div class="field">
+                    <input type="password" name="password" placeholder="Password" required>
+                   </div>
+                   <div class="field">
+                    <input type="password" name="confirm" placeholder="ConfirmPassword" required>
+                   </div>
+                   <div class="field">
+                    <input type="submit" value="Signup">
+                    </div>
+                    <h3>OR</h3>
+                <div class="field">
+                   <button> <a href="/user/auth/google"><i class="fa fa-google" aria-hidden="true"></i> Log in with Google</a></button>
+                 </div>
+                    </form>
+        </div>
+    </div>
+</div>
+</div>
+<% var deleted=deleted%>
+<script>
+    let check = '<%-deleted%>'
+    const loginForm=document.querySelector("form.login");
+    const signupForm=document.querySelector("form.signup");
+    const loginBtn=document.querySelector("label.login");
+    const signupBtn=document.querySelector("label.signup");
+    const loginText=document.querySelector(".title-text .login");
+    const signupLink=document.querySelector(".signup-link a");
+    console.log(loginText);
+    function signup() {
+        loginForm.style.marginLeft="-50%";
+        loginText.style.marginLeft="-50%";
+        }
+     function login() {
+        loginForm.style.marginLeft="0%";
+        loginText.style.marginLeft="0%";
+        }
+     function Linkclick() {
+         console.log("link clicked")
+        signupBtn.click();
+        return false;
+     }
+    loginBtn.onclick=login;
+    signupBtn.onclick = signup;
+    signupLink.onclick=Linkclick;
+    if(check=="false")
+     {
+        Linkclick();
+     }
+    
+</script>

@@ -1,15 +1,126 @@
-<li id="post-<%=post._id%>">
+<% let found=false%>
+<% for(like of post.likes){ %>
+      <% if(like.user==locals.user.id){%>
+        <% found=true%>
+        <%break%>
+      <% } %>
+       <% } %>
+<div class="card" id="post_<%=post._id%>">
+    <div class="header">
+        <div>
+        <%if(post.user.avtar==undefined){%>
+            <div class="profile-pic" style="background-image: url('/images/my_image.png');"></div>
+            <% }else{%>
+        <div class="profile-pic">
+            <img src="<%=post.user.avtar%>" >
+        </div>
+        <%}%>
+        <%if(post.repost==false){%>
+            <p class="repost">reposted</p>
+        <%}%>
+        </div>
+        <div class="detail">
+            <p class="name"><%=post.user.name%></p>
+            <p class="posted">
+                <%
+                  getdate=function(date)
+                  {
+                    var  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    finaldate=(date).toISOString().substring(0, 10).split("-").reverse().join("-");
+                    var month=months[date.getMonth()];
+                    date=finaldate.substring(0,2)+" "+month+" "+finaldate.substring(6);
+                    return date;
+                  }
+                %>
+                <%=getdate(post.createdAt)%>
+            </p>
+        </div>
+        <div class="remove">
+            <% if(locals.user && locals.user.id==post.user.id){%>
+                <small>
+                    <a class="delete-post-button" href="/posts/destroy/<%=post.id%>"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>  
+                </small>
+                <%}%>
+        </div>
+    </div>
+<div class="picture">
+    <%if(post.typepv=='Image'){%>
+        <img src="<%=post.postPath %>">
+      <%}%>
+      <%if(post.typepv=='Video'){%>
+        <video src="<%=post.postPath %>"controls></video>
+      <%}%>
+</div>
+<div class="content"></div>
+<div class="desc"><%=post.content%></div>
+<div class="footer">
+    <div class="like">
+            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                <% if(found==true){%>
+                <i class="fa fa-heart fa-lg " aria-hidden="true"  style="color:red;"></i> <span><%= post.likes.length %> </span>
+                    <% }else{%>
+                <i class="fa fa-heart-o fa-lg " aria-hidden="true"  style="font-weight:bolder;"></i><span><%= post.likes.length %> </span>
+                <% } %>
+            </a>
+    </div>
+    <div class="comment">
+<a class="post-comment-<%= post._id %>-print" data-comments="<%=post.comments.length%>" href="/comments/display/<%=post.id%>"><i class="fa fa-comment fa-lg" aria-hidden="true"></i> <%= post.comments.length %></a>
+    </div>
+ <div class="share">
+    <a href="/posts/repost/<%=post.id%>"><i class="fa fa-share fa-lg" aria-hidden="true" style="color:black"></i></a>
+</div>
+</div>
+<div class="display-comments">
+    <% let test=0%>
+        <% for(comment of post.comments){%>
+            <% if(test==3){%>
+                <%break%>
+              <% } %>
+            <%test++%>
+            <div>
+     <span style="font-weight:bold;"><%=comment.user.name%></span> &nbsp;<span><%=comment.content%></span>
+        </div>
+       <%}%>
+</div>
+<div class="comments">
+    <i class="fa fa-smile-o" aria-hidden="true"></i>
+    <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
+        <input type="text" name="content" placeholder="Type Here to add comments..." required>
+        <input type="hidden" name="post" value="<%=post._id %>">
+         <button type="submit" >Post</button>
+    </form>
+</div>
+</div>
+
+ <!-- <li id="post-<%=post._id%>"> 
     <p>
         <% if(locals.user && locals.user.id==post.user.id){%>
         <small>
             <a class="delete-post-button" href="/posts/destroy/<%=post.id%>">X</a>  
         </small>
         <%}%>
-    <%= post.content%>
-    <br>
+        <%if(post.typepv=='Image'){%>
+            <img src="<%=post.postPath %>" width="200px" height="150px">
+          <%}%>
+      
+          <%if(post.typepv=='Video'){%>
+            <video src="<%=post.postPath %>" controls width="300px" height="300px"></video>
+          <%}%>
+          <p style="font-weight: 500; width:43%;margin-top: -0.1px;"><%=post.content%></p>
     <small>
     <%=post.user.name%>
 </small>
+<br>
+<small>
+    <% if (locals.user){ %>
+        <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                <%= post.likes.length %> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+        </a>
+    <% }else{ %>
+        <%= post.likes.length %> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+    <% } %>
+</small>
+
 
 </p>
 <div class="post-comments">
@@ -21,12 +132,7 @@
     </form>
     <% } %>
     <div class="post-comments-list">
-         <ul id="post-comments-<%=post._id%>">
-             <% for(comment of post.comments){%>
-                <%- include('_comment') -%>
-            <%}%>
-              
-         </ul>
     </div>
 </div>
 </li>
+  -->

@@ -2,19 +2,19 @@
     //method to submit form data for new post using ajax
     let createPost=function(){
         let newPostForm = $('#new-post-form');
-          
         newPostForm.submit(function(e){
             e.preventDefault();
             $.ajax({
                   type:'post',
                   url:'/posts/create',
-                  data:newPostForm.serialize(),
+                  data:newPostForm.serialize(),// convert data to json
                   success:function(data){
                       let newPost = newPostDom(data.data.post);
-                      deletePost($(' .delete-post-button',newPost));// way to send link
+                      deletePost($(' .delete-post-button',newPost));// way to send link, new post contain this delete postbutton
                       $('#posts-list-container>ul').prepend(newPost);
                       // call the create comment class
                     new PostComments(data.data.post._id);
+                    new ToggleLike($(' .toggle-like-button',newPost));
                       new Noty({
                         theme: 'relax',
                         text: "Post published!",
@@ -41,7 +41,13 @@
         <small>
         ${post.user.name}
     </small>
-    
+    <br>
+    <small>
+            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                0 Likes
+            </a>
+    </small>
+
     </p>
     <div class="post-comments">
         <form action="/comments/create" method="POST" id="post-${post._id}-comments-form">
@@ -63,7 +69,7 @@
          e.preventDefault();
          $.ajax({
              type:'get',
-             url:$(deleteLink).prop('href'),
+             url:$(deleteLink).prop('href'),// to get href from a tag
              success:function(data){
                  $(`#post-${data.data.post_id}`).remove();
                  new Noty({
@@ -95,7 +101,6 @@ let convertPostsToAjax = function(){
 
     });
 }
-
     createPost();
     convertPostsToAjax();
 }

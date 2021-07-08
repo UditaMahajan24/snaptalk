@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/css/post_create.css">
+<div id="post">
+    <h1> Create Post</h1>
+<%if(locals.user){%>
+    <form action="/posts/create" id="new-post-form" method="POST" enctype="multipart/form-data">
+       <div id="test"><i class="fa fa-pencil" aria-hidden="true"></i><textarea name="content" placeholder="what do you got in mind"></textarea></div> 
+       <div> <input name="myPost" type="file" style="display:none;" id="post-input" required></div>
+       <div id="choose"><button style="display:block;" onclick="document.getElementById('post-input').click()"><i class="fa fa-camera"></i></button>
+      <div id="name">
+
+      </div>
+      </div>
+       <button type="submit">Submit</button>
+    </form>
+    <h4>
+
+    </h4>
+    <%}%>
+    <script>
+      $(document).ready(function() {
+          $('input[type="file"]').change(function(e) {
+              var geekss = e.target.files[0].name;
+              $("#name").text(geekss);
+
+          });
+      });
+  </script>
+   </div>

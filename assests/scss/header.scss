@@ -1,27 +1,56 @@
-header{
-    width:100%;
-    height:10%;
-    background-color:cornflowerblue;
-    color: white;
-    display:flex;
-    justify-content:space-between;
-     h1{
-         margin-left: 2%;
-     }
-    ul{
-        width:14%;
-        height:100%;
-        display:flex;
-        justify-content:space-between;
-        margin-right: 2%;
-        margin-top: 2%;
-        font-size: larger;
-        li{
-            list-style: none;
-            a{
-                text-decoration: none;
-                color:white;   
-            }
-        }
+
+.barmade{
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+    position: fixed;
+    z-index:1; 
+    .my_img{
+     border-radius: 100%;
+     padding-top:15px;
     }
 }
+#head_form,#form2{
+    padding-top:4%;
+    margin-right:320px;
+ .box{
+     width:270px;
+     height:10px;
+     border-radius: 30px;
+     border:1px solid #5a88cefa;
+     display:flex;
+     align-items:center;
+     padding:10px;
+     button{
+         border:none;
+         font-weight: bolder;
+         background:transparent;
+     i{
+         font-size: 20px;
+         color:white;
+     }
+    }
+         input{
+            border:none;
+            outline: none;
+             background:transparent;
+             height:27px;
+             margin-left: 1%;
+             color:cornsilk;
+         }
+       }   
+    }
+    #form2{
+        margin-left: 32px;
+        .box{
+            width:120px;
+            height:10px;
+            button{
+                border:none;
+                font-weight: bolder;
+                background:transparent;
+            i{
+                color:black;
+            }
+            margin-left: 0%;
+        }
+    }
+    }

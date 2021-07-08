@@ -1,0 +1,61 @@
+header {
+  margin-top: -8px;
+  width: 100%;
+  height: 10%;
+  background-image: url("/images/4K-3.jpg");
+  background-size: cover;
+  color: black;
+  display: flex;
+  position: fixed; }
+  header h1 {
+    margin-left: 2%; }
+  header form {
+    margin-left: 30%;
+    margin-top: 20px; }
+    header form .box {
+      width: 300px;
+      height: 10px;
+      border-radius: 30px;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      padding: 10px; }
+      header form .box button {
+        border: none;
+        font-weight: bolder;
+        background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+        opacity: 0.5; }
+        header form .box button i {
+          font-size: 20px;
+          color: #777; }
+      header form .box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+        opacity: 0.5; }
+  header ul {
+    margin-left: 18%;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+    margin-top: 15px;
+    font-size: larger; }
+    header ul li {
+      list-style: none; }
+      header ul li a {
+        text-decoration: none;
+        color: black; }
+        header ul li a .profile {
+          border-radius: 100%; }
+        header ul li a .material-icons {
+          font-size: 40px; }
+      header ul li a:hover {
+        text-decoration: underline; }
+    header ul a:focus img {
+      border: 1px solid;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+      outline-color: rgba(255, 255, 255, 0);
+      outline-offset: 15px; }

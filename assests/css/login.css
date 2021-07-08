@@ -1,0 +1,233 @@
+#layout-main {
+  display: grid;
+  height: 100%;
+  padding: 10px; }
+  #layout-main #new_start, #layout-main #logo {
+    display: none; }
+  #layout-main .sliding {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 80%;
+    margin-top: 5%;
+    margin-left: 15%; }
+    #layout-main .sliding .left {
+      background-image: linear-gradient(-225deg, #5c9dff 0%, #a7ccf1 48%, #6bbaff 100%);
+      width: 50%;
+      height: 100%; }
+      #layout-main .sliding .left .centered {
+        margin-top: 30%;
+        text-align: center;
+        font-size: 40px; }
+    #layout-main .sliding .wrapper {
+      width: 40%;
+      transition: 1.8s ease-in-out;
+      overflow: hidden;
+      background: white;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1); }
+      #layout-main .sliding .wrapper .title-text {
+        display: flex;
+        width: 200%; }
+        #layout-main .sliding .wrapper .title-text .title {
+          width: 50%;
+          font-size: 35px;
+          font-weight: 600;
+          text-align: center;
+          transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+      #layout-main .sliding .wrapper .form-container {
+        width: 100%;
+        overflow: hidden; }
+        #layout-main .sliding .wrapper .form-container .slide-controls {
+          position: relative;
+          display: flex;
+          height: 40px;
+          width: 99%;
+          overflow: hidden;
+          border-radius: 5px;
+          margin: 30px 0 10px 0;
+          justify-content: space-between;
+          border: 1px solid lightgrey; }
+          #layout-main .sliding .wrapper .form-container .slide-controls .slide {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            transition: all 0.6s ease; }
+          #layout-main .sliding .wrapper .form-container .slide-controls .signup {
+            color: #000; }
+          #layout-main .sliding .wrapper .form-container .slide-controls input[type="radio"] {
+            display: none; }
+          #layout-main .sliding .wrapper .form-container .slide-controls #signup:checked ~ .login {
+            color: #000; }
+          #layout-main .sliding .wrapper .form-container .slide-controls #signup:checked ~ .signup {
+            color: #fff; }
+          #layout-main .sliding .wrapper .form-container .slide-controls #signup:checked ~ .slide-tab {
+            left: 50%; }
+          #layout-main .sliding .wrapper .form-container .slide-controls .slide-tab {
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            left: 0;
+            z-index: 0;
+            border-radius: 5px;
+            transition: all 0.6s cubic-bezier(0.68, 0.55, 0.265, 1.55);
+            background-color: #46b5c9; }
+        #layout-main .sliding .wrapper .form-container .form-inner {
+          display: flex;
+          width: 200%; }
+          #layout-main .sliding .wrapper .form-container .form-inner form {
+            width: 50%;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+            #layout-main .sliding .wrapper .form-container .form-inner form h3 {
+              text-align: center; }
+            #layout-main .sliding .wrapper .form-container .form-inner form .field {
+              height: 40px;
+              width: 100%;
+              margin-top: 20px; }
+              #layout-main .sliding .wrapper .form-container .form-inner form .field input, #layout-main .sliding .wrapper .form-container .form-inner form .field button {
+                height: 100%;
+                width: 100%;
+                outline: none;
+                padding-left: 15px;
+                font-size: 17px;
+                border-radius: 5px;
+                border: 1px solid lightgrey;
+                border-bottom-width: 2px;
+                transition: all 0.4s ease; }
+              #layout-main .sliding .wrapper .form-container .form-inner form .field input[type="submit"], #layout-main .sliding .wrapper .form-container .form-inner form .field button {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+                padding-left: 0px;
+                border: none;
+                cursor: pointer;
+                background-color: #46b5c9; }
+              #layout-main .sliding .wrapper .form-container .form-inner form .field button a {
+                color: #fff;
+                font-size: 18px;
+                font-weight: 500;
+                text-decoration: none; }
+              #layout-main .sliding .wrapper .form-container .form-inner form .field input:focus {
+                border-color: blueviolet; }
+          #layout-main .sliding .wrapper .form-container .form-inner .pass-link {
+            margin-top: 5px; }
+            #layout-main .sliding .wrapper .form-container .form-inner .pass-link a {
+              color: rgba(4, 7, 165, 0.89);
+              text-decoration: none; }
+          #layout-main .sliding .wrapper .form-container .form-inner .signup-link {
+            margin-top: 25px;
+            text-align: center; }
+            #layout-main .sliding .wrapper .form-container .form-inner .signup-link a {
+              color: rgba(4, 7, 165, 0.89);
+              text-decoration: none; }
+          #layout-main .sliding .wrapper .form-container .form-inner .pass-link a:hover {
+            text-decoration: underline; }
+          #layout-main .sliding .wrapper .form-container .form-inner .signup-link a:hover {
+            text-decoration: underline; }
+    @media screen and (max-width: 1160px) {
+      #layout-main .sliding {
+        margin-top: 5%;
+        margin-left: 10%;
+        width: 80%; }
+        #layout-main .sliding .left {
+          width: 50%;
+          height: 100%; }
+          #layout-main .sliding .left .centered {
+            margin-top: 30%;
+            text-align: center;
+            font-size: 30px; } }
+    @media screen and (max-width: 1040px) {
+      #layout-main .sliding {
+        margin-top: 5%;
+        margin-left: 10%;
+        width: 80%; }
+        #layout-main .sliding .left {
+          width: 50%;
+          height: 100%; }
+          #layout-main .sliding .left .centered {
+            margin-top: 45%;
+            text-align: center;
+            font-size: 30px; } }
+    @media screen and (max-width: 840px) {
+      #layout-main .sliding {
+        width: 90%;
+        margin-left: 4%; } }
+    @media screen and (max-width: 740px) {
+      #layout-main .sliding {
+        width: 96%;
+        margin-left: 2%; } }
+    @media screen and (max-width: 690px) {
+      #layout-main .sliding {
+        width: 96%;
+        margin-left: 2%; }
+        #layout-main .sliding .left .centered {
+          margin-top: 45%;
+          text-align: center;
+          font-size: 25px; }
+        #layout-main .sliding .wrapper {
+          padding: 10px;
+          width: 45%; } }
+    @media screen and (max-width: 580px) {
+      #layout-main .sliding {
+        width: 98%;
+        margin-left: 1%; }
+        #layout-main .sliding .left .centered {
+          margin-top: 50%;
+          text-align: center;
+          font-size: 25px; }
+        #layout-main .sliding .wrapper {
+          padding: 5px;
+          width: 50%; } }
+    @media screen and (max-width: 500px) {
+      #layout-main .sliding {
+        margin-top: 0%;
+        background-image: url("/images/4K-3.jpg");
+        background-size: cover; }
+        #layout-main .sliding .left {
+          display: none; }
+        #layout-main .sliding .wrapper {
+          background-image: url("/images/4K-3.jpg");
+          background-size: cover;
+          padding: 5px;
+          width: 80%;
+          margin-left: 10%;
+          box-shadow: none; }
+          #layout-main .sliding .wrapper .title-text .title {
+            width: 50%;
+            font-size: 25px;
+            font-weight: 600; }
+          #layout-main .sliding .wrapper .form-container .form-inner form .field {
+            height: 30px; } }
+    @media screen and (max-width: 400px) {
+      #layout-main .sliding .wrapper {
+        padding: 5px;
+        width: 90%;
+        margin-left: 5%; } }
+    @media screen and (max-width: 310px) {
+      #layout-main .sliding .wrapper {
+        padding: 5px;
+        width: 98%;
+        margin-left: 1%; } }
+  @media screen and (max-width: 500px) {
+    #layout-main {
+      padding: 1px;
+      display: block;
+      background-image: url("/images/4K-3.jpg");
+      background-size: cover; }
+      #layout-main #new_start, #layout-main #logo {
+        display: block; }
+      #layout-main #logo {
+        margin-left: 30%;
+        margin-bottom: 0%;
+        color: black; }
+      #layout-main #new_start {
+        margin-left: 34%;
+        margin-bottom: 8%;
+        color: black; } }

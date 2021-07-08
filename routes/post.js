@@ -5,5 +5,6 @@ const passport=require('passport');
 const postController=require('../controllers/posts_controller');
 router.post('/create',passport.checkAuthentication,postController.create);
 router.get('/destroy/:id',passport.checkAuthentication,postController.destroy);//destroying the post
-
+router.get('/repost/:id',postController.repost);
+router.get('/create-post',postController.create_post);
 module.exports=router;

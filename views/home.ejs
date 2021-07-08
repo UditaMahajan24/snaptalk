@@ -1,29 +1,56 @@
+<%- include('_header');%>
 <link rel="stylesheet" href="/css/home.css">
-<div id="home-container">
-        <section id="feed-posts">
-            <h4>Posts</h4>
-            <%if(locals.user){%>
-            <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" placeholder="Type Here..." col="30" rows="3"></textarea>
-                <input type="submit" value="Post">
-            </form>
+
+<% let found=false%>
+<% for (post of posts){%>
+    <%for(friend of friendlist){%>
+        <%if(post.user.name==friend){%>
+           <%found=true%>
+           <%break%>
+    <%}%>
+    <%if(found==true){%>
+        <%break%>       
             <%}%>
-            <div id="posts-list-container">
+    <% } %>
+    <%}%>
+  <div id="posts-list-container">
+      <%if(found==false){%>
+        <div id="start">
+        <img src="/images/start_image.png">
+        <p>Start by creating a new post</p>
+       </div>
+        <%}else{%>
+    <div class="think"> 
+        <img src="/images/think2.png">
+    </div>
+                <div class="wrapper">
                 <ul>
                     <% for (post of posts){%>
+                        <%for(friend of friendlist){%>
+                            <%if(post.user.name==friend){%>
                         <%- include('_post') -%>
+                        <%}%>
                         <% } %>
+                        <%}%>
                 </ul>
             </div>
-        </section>
-        <section id="user-friends">
-            <h4>Friends</h4>
-            <%for(u of all_users){%>
-                <p>
-                    <a href="user/profile/<%=u.id %>"><%=u.name%></a>
-                </p>
-                <%}%>
-        </section>
-   </div>
-   <script src="/js/home_post_comments.js"></script>
-   <script src="/js/home_posts.js"></script>
+            </div>
+            <%}%>
+            <script src="js/home_post_comments.js"></script>
+            <script src="js/toggle_likes.js"></script> 
+            <script>
+                $('.card').each(function(){ 
+           let self = this; 
+           console.log(self.id);
+           let postId = self.id.split("_")[1];
+           new PostComments(postId);    
+     }); 
+     </script>
+ <script> 
+     $('.toggle-like-button').each(function(){ 
+        let self = this; 
+         let toggleLike = new ToggleLike(self); 
+     }); 
+ </script> 
+
+

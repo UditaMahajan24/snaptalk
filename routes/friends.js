@@ -1,0 +1,12 @@
+const express=require('express');
+const router= express.Router();
+const passport = require("passport");
+const friendcontroller=require('../controllers/friends_controller');
+router.get('/add-friend',passport.checkAuthentication,friendcontroller.friend_add);
+router.get('/remove-friend',passport.checkAuthentication,friendcontroller.friends_remove);
+router.get('/request-friend',passport.checkAuthentication,friendcontroller.friendrequest);
+router.get('/display-request',passport.checkAuthentication,friendcontroller.displayrequest);
+router.get('/delete-friend-request',passport.checkAuthentication,friendcontroller.deleterequest);
+router.get('/display-friend',friendcontroller.display_friends);
+router.get('/chatbox',passport.checkAuthentication,friendcontroller.chatroom);
+module.exports=router;

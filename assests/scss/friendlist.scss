@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');  
+ #friend{
+    padding-top: 6%;
+    padding-left: 3%;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+    min-height:100vh;
+    h3{
+        display:none;
+    }
+    .no-friends{
+        font-size: 30px;
+        text-align: center;
+    }
+    #friend_img{
+        width:30%;
+      font-size: 120px;
+      font-family:Lobster;  
+      display:inline-block;
+      position: sticky;
+      position: -webkit-sticky;
+      top:20%; 
+      margin-left:8%;
+      margin-right: 8%;
+    }
+    #my_friends{
+        display:inline-block;
+      vertical-align: top;
+      margin-top:2%;
+        overflow:hidden;
+        width: 40%;
+        padding:30px;
+        min-height: 500px; 
+    div{
+        display:flex;
+        width:90%;
+        flex-direction: row;
+        align-items:center;
+        margin-bottom: 3%;
+    .image{
+        width:30%;
+        img{
+            width:80px;
+        border-radius: 100%;
+        box-shadow: 0 0 3px rgba(0,0,0,0.6);
+        }
+        
+    }
+    .friends-item{
+        width:60%;
+        text-decoration: none;
+        color:black;
+        font-size:30px;
+        margin-right: 5%;
+    }
+    button{
+        border-radius: 5px;
+        background-image: url("/images/4K-3.jpg");
+        background-size: cover;
+        border-radius:5px;
+        outline: none;
+        width:40%;
+        text-align:center;
+        a{
+            text-decoration: none;
+            color:black;
+            font-size: larger;
+        }
+    }
+}
+    }
+    @media screen and (max-width:1500px){
+        #my_friends{
+            width: 45%;
+            padding-left:20px;
+            padding-right: 20px;
+        }
+    }
+    @media screen and (max-width:1500px){
+        #friend_img{
+            margin-left:5%;
+            font-size: 100px;
+        }
+        #my_friends{
+            width: 45%;
+            padding-left:10px;
+            padding-right: 10px;
+        }
+    }
+    @media screen and (max-width:1180px){
+        #friend_img{
+            margin-left:4%;
+            font-size: 100px;
+        }
+        #my_friends{
+            width: 50%;
+        }
+    }
+    @media screen and (max-width:1060px){
+        #friend_img{
+            margin-left:1%;
+            font-size: 100px;
+        }
+        #my_friends{
+            width: 60%;
+            padding-left:0px;
+            padding-right: 0px;
+        }
+    }
+    @media screen and (max-width:920px){
+        h3{
+            display:block;
+            font-family:Lobster;  
+            margin-left: 35%;
+            margin-top: 4%;
+        }
+        #friend_img{
+            display:none;
+        }
+        #my_friends{
+            width: 60%;
+            padding-left:0px;
+            padding-right: 0px;
+        }
+    }
+    @media screen and (max-width:830px){
+        #my_friends{
+            width: 70%;
+            padding-left:0px;
+            padding-right: 0px;
+        }
+    }
+    @media screen and (max-width:720px){
+        #my_friends{
+            width: 85%;
+            padding-left:0px;
+            padding-right: 0px;
+        }
+    }
+    @media screen and (max-width:640px){
+        h3{
+            margin-top:8%;
+        }
+        #my_friends{
+            width: 85%;
+            padding-left:0px;
+            padding-right: 0px;
+        }
+    }
+    @media screen and (max-width:600px){
+        h3{
+            margin-top:8%;
+        }
+        #my_friends{
+            width: 85%;
+            padding-left:0px;
+            padding-right: 0px;
+            div{
+                width:100%;
+            .image{
+                width:30%;
+                img{
+                    width:60px;
+                }
+                
+            }
+            .friends-item{
+                font-size:20px;
+                width:40%;
+            }
+            button{
+                a{
+                    text-decoration: none;
+                    color:black;
+                    font-size:15px;
+                }
+            }
+        }
+        }
+    }
+    @media screen and (max-width:500px){
+        h3{
+            margin-top:8%;
+        }
+        #my_friends{
+            div{
+            .image{
+                width:30%;
+                img{
+                    width:60px;
+                }
+                
+            }
+            .friends-item{
+                font-size:20px;
+                width:60%;
+            }
+            button{
+                a{
+                    font-size:12px;
+                }
+            }
+        }
+        }
+    }
+    @media screen and (max-width:450px){
+        h3{
+            margin-top:10%;
+        }
+        #my_friends{
+            div{
+                width:95%;
+            .friends-item{
+                font-size:15px;
+                width:60%;
+            }
+        }
+        }
+    }
+    @media screen and (max-width:410px){
+        h3{
+            margin-top:10%;
+        }
+        #my_friends{
+            width:94%;
+            div{
+                width:95%;
+            .friends-item{
+                font-size:15px;
+                width:60%;
+                margin-left: 10%;
+            }
+        }
+        }
+    }
+    @media screen and (max-width:340px){
+        h3{
+            font-size: 35px;
+            margin-top:20%;
+            margin-left: 30%;
+        }
+        #my_friends{
+            width:96%;
+            div{
+                width:95%;
+                .image{
+                    width:25%;
+                    img{
+                        width:40px;
+                    }
+                    
+                }
+            .friends-item{
+                font-size:15px;
+                width:60%;
+                margin-left: 10%;
+            }
+        }
+        }
+    }
+}

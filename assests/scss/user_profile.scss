@@ -1,4 +1,418 @@
-body{
-    background-color: aqua;
-    height:100%;
+@import url('https://fonts.googleapis.com/css?family=Lobster'); 
+#profile-container{
+    padding-top: 10%;
+    padding-left: 15%;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+    min-height: 600px;
+      #profile{
+        width:100%;
+        .my_profile{
+            display:inline-block;
+            width:30%;
+        img {
+            border-radius:100px;
+            width:200px;
+        }
+    }
+    .info{
+        display:inline-block;
+        width:40%;
+        vertical-align:top;
+        #name{
+            font-size: 50px;
+            display: inline;
+            margin-right: 4%;
+            font-family:sans-serif;
+        }
+        a{
+            text-decoration: none;
+            button{
+                margin-top: 3%;
+                vertical-align: top;
+                background-image: url("/images/4K-3.jpg");
+                background-size: cover;
+                border-radius:5px;
+                outline: none;
+                margin-right: 2%;
+            }
+            i{
+                vertical-align: top;
+                margin-top: 4%;
+                 color:black;
+            }
+        }
+        .btn-grp
+        {
+            display:inline;
+            button{
+                margin-top: 3%;
+                vertical-align: top;
+                background-image: url("/images/4K-3.jpg");
+                background-size: cover;
+                border-radius:5px;
+                outline: none;
+                a{
+                    color:black;
+                    font-size: larger;
+                }
+            }
+           
+        }
+        
+        #social_info{
+            margin-top: 3%;
+            span{
+                color:black;
+                font-size: 20px;
+                margin-right: 2%;
+            }
+            a{
+                text-decoration: none;
+                color:black;
+                font-size: 20px;
+                margin-right: 2%;
+            }
+        }
+        #email{
+            margin-top:5%;
+            font-size: 20px;
+        }
+        #about{
+            font-size: 22px;
+            font-weight: 600px;
+        }
+        
+    }
+    }
+    #my_posts{
+    display:flex;
+    flex-direction:row;
+    width:90%;
+    margin-top: 10%;
+    flex-wrap: wrap;
+    align-content: space-around;
+    div
+    {
+      width:30%;
+      margin-right: 2%;
+      margin-bottom:3%;
+      position: relative;
+      img{
+          width:100%;
+          height:260px;
+      }
+      div{
+          position:absolute;
+          top:40%;
+          left:35%;
+          visibility: hidden;
+      }
+    }
+    .post:hover img{
+        opacity: 0.3;
+    }
+    .post:hover .post_info{
+        visibility: visible;
+    }
+    }
+    @media screen and (max-width:1200px){
+        #profile{
+            .my_profile{
+            img {
+                border-radius:100px;
+                width:160px;
+            }
+    }
+    .info{
+        #name{
+            font-size: 40px;
+        }
+        a{
+            button{
+                font-size: 10px;
+            }
+        }
+        .btn-grp
+        {
+            button{
+                a{
+                    color:black;
+                    font-size:10px;
+                }
+            }
+           
+        }
+        
+        #social_info{
+            span{
+                font-size:15px;
+            }
+            a{
+                font-size: 15px;
+            }
+        }
+        #email{
+            font-size: 15px;
+        }
+        #about{
+            font-size: 20px;
+        }
+
+    }
+}
+    }
+
+
+    @media screen and (max-width:960px){
+    .info{
+        margin-left:3%;
+    }
+    #my_posts{
+        div
+        {
+          width:40%;
+          margin-right: 2%;
+          margin-bottom:3%;
+          position: relative;
+        }}
+
+    }
+    @media screen and (max-width:800px){
+        #profile{
+            .my_profile{
+                width:25%;
+            img {
+                border-radius:100px;
+                width:150px;
+            }
+    }
+        .info{
+            width:60%;
+            margin-left:5%;
+            #name{
+                font-size: 35px;
+            }
+    
+        }
+        #my_posts{
+            div
+            {
+              width:45%;
+            }
+        }
+    
+        }
+    }
+
+    @media screen and (max-width:700px){
+        padding-top:13%;
+        padding-left:6%;
+        #profile{
+            margin-left: 3%;
+            .my_profile{
+                width:25%;
+            img {
+                border-radius:100px;
+                width:130px;
+            }
+    }
+        .info{
+            width:60%;
+            margin-left:5%;
+            #name{
+                font-size: 35px;
+            }
+    
+        }
+    }
+        #my_posts{
+            div
+            {
+              width:46%;
+            }
+            .post{
+                .post_info
+                {
+                    width:50%;
+                    left: 20%;
+                }
+            }
+        }
+    
+    }
+    @media screen and (max-width:600px){
+        padding-top: 13%;
+        padding-left: 4%;
+    #profile{
+        margin-left:0%;
+        .my_profile{
+            width:20%;
+        img {
+            border-radius:100px;
+            width:120px;
+        }
+}
+    .info{
+        margin-left:8%;
+        width:70%;
+
+    }
+}
+    #my_posts{
+        margin-left: 0%;
+        width:100%;
+        div{
+            width:45%;
+        }
+        .post{
+            .post_info
+            {
+                width:50%;
+                left: 20%;
+            }
+        }
+    }
+
+}
+@media screen and (max-width:480px){
+    padding-top: 16%;
+    padding-left: 4%;
+#profile{
+    margin-left:0%;
+    .my_profile{
+        width:20%;
+    img {
+        border-radius:100px;
+        width:80px;
+    }
+}
+.info{
+    margin-left:8%;
+    width:70%;
+    #name{
+        font-size: 30px;
+    }
+    a{
+        button{
+            font-size: 8px;
+        }
+    }
+    .btn-grp
+    {
+        button{
+            a{
+                color:black;
+                font-size:8px;
+            }
+        }
+       
+    }
+    #social_info{
+        span{
+            font-size:13px;
+        }
+        a{
+            font-size: 13px;
+        }
+    }
+    #email{
+        font-size: 13px;
+    }
+    #about{
+        font-size: 15px;
+    }
+
+}
+}
+#my_posts{
+    margin-left: 0%;
+    width:100%;
+    div{
+        width:45%;
+    }
+    .post{
+        img,video{
+            height:240px
+        }
+
+        .post_info
+        {
+            width:60%;
+            left: 10%;
+        }
+    }
+}
+
+}
+
+
+@media screen and (max-width:370px){
+    padding-top: 25%;
+    padding-left: 4%;
+#profile{
+    margin-left:0%;
+    .my_profile{
+        width:20%;
+    img {
+        border-radius:100px;
+        width:80px;
+    }
+}
+.info{
+    margin-left:12%;
+    width:65%;
+    #name{
+        font-size: 25px;
+    }
+    a{
+        button{
+            font-size: 8px;
+        }
+    }
+    .btn-grp
+    {
+        button{
+            a{
+                color:black;
+                font-size:8px;
+            }
+        }
+       
+    }
+    #social_info{
+        span{
+            font-size:10px;
+        }
+        a{
+            font-size: 10px;
+        }
+    }
+    #email{
+        font-size: 10px;
+    }
+    #about{
+        font-size: 15px;
+    }
+
+}
+}
+#my_posts{
+    margin-left: 0%;
+    width:100%;
+    div{
+        width:47%;
+    }
+    .post{
+        img,video{
+            height:180px;
+        }
+        .post_info
+        {
+            width:80%;
+            left: 3%;
+        }
+    }
+}
+
+}
 }

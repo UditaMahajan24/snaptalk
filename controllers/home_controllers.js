@@ -33,23 +33,61 @@ const User=require('../models/user');
 module.exports.home= async function(req,res){
 try{
   let posts=await Post.find({}) //await 1
-    .sort('-createdAt')
-    .populate('user')
-    .populate({
-    path:'comments',
-    populate:
-    {path:'user'}
-    });
-  
-  let users= await User.find({});// to find all users in user schema (await2)
+  .sort("-createdAt")
+  .populate("user")
+  .populate({
+    path: "comments",
+    populate: {
+      path: "user",
+    },
+  })
+  .populate({
+    path: "comments",
+    populate: {
+      path: "likes",
+    },
+  }).populate('likes');
+  let user=await User.findById(req.user.id)
+        .populate({
+            path:'friends',
+            populate:{
+                path:'to_user'
+            }
+        })
+        .populate({
+            path:'friends',
+            populate:{
+                path:'from_user'
+            }
+        });
+
+        var friend=[];
+        friend[0]=req.user.name;
+        var i=1;
+        for(friends of user.friends){ 
+            if((req.user.id == friends.from_user.id || friends.to_user.id ==req.user.id)){
+                    if(friends.from_user.id == user.id) {
+                        friend[i]=friends.to_user.name;
+                        i++;
+                    }
+                 
+                    if(friends.to_user.id == user.id) {
+                        friend[i]=friends.from_user.name;
+                        i++;
+                    }
+            }
+        }
+
   return res.render('home',{//await3
     title:"codeial/home",
     posts:posts,
-    all_users:users// putting all users in all_users
+    user:user,
+    friendlist:friend
   });   
 }
 catch(err){
-console.log('Error',err);
-return;
+  return res.json(500,{
+    message:'error in rendering home page'
+});
 }
 }

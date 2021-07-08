@@ -1,16 +1,122 @@
+<%- include('_header');%>
 <link rel="stylesheet" href="/css/user_profile.css">
-
-        <img src="<%=profile_user.avtar%>" alt="<%=user.name%>" width="100">
-        <% if(user.id == profile_user.id){%>
-        <!--if user matches then show the form -->
-        <form action="/user/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
-          <input type="text" name="name" placeholder="your name.." value="<%= profile_user.name%> "required>
-          <input type="email" name="email" placeholder="your email.." value="<%= profile_user.email%>" required>
-          <input type="file"  name="avtar" placeholder="profile picture">
-          <input type="submit" value="Update">
-        </form>
+<% let found=false%>
+<% for(pending of logged_user.friend_pending){ %>
+      <% if(pending.to_user.id==profile_user.id){%>
+        <% found=true%>
+        <%break%>
+      <% } %>
+       <% } %>
+       <%let count= 0%>
+       <% for (post of posts){%>
+        <%if(post.user.email==profile_user.email){%> 
+          <%count++%>
+          <%}%>
+          <%}%>
+<% var chatname=null%>
+<% for(chatroom of profile_user.chatroom){ %>
+  <% let found=false%>
+  <% for(chatbox of user.chatroom){ %>
+    <% if(chatbox._id.equals(chatroom._id)){%>
+      <%chatname=chatroom.name%>
+      <% found=true%>
+      <%break%>
+    <% } %>
+     <% } %>
+     <% if(found==true){%>
+       <%break%>
+       <% } %>
+     <% } %>
+     <%var my_friend=false%>
+<div id="profile-container">
+  <section id="profile">
+    <div class="my_profile">
+    <%if(profile_user.avtar==undefined){%>
+      <img src="/images/my_image.png">
+      <% }else{%>
+       <img src="<%=profile_user.avtar%>" >
+       <%}%> 
+      </div>
+      <div class="info">
+       <p id="name"><%=profile_user.name%></p>
+       <% if(user.id == profile_user.id){%>
+        <a href="/user/Profile-Update/<%=profile_user.id%>"><button>Edit Profile </button>  <i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
         <%}else{%>
-             <!--else show only profile info -->
-              <p><%=profile_user.name%></p>
-              <p><%=profile_user.email%></p>
-        <%}%> 
+          <div class="btn-grp">
+            <% if(user.id!= profile_user.id){ %>
+            <% let isFriend = false %>
+            <% for(friends of profile_user.friends){ %> 
+            <% if((user.id == friends.from_user.id || friends.to_user.id ==user.id) && user.id!= profile_user.id){ %>
+              <% isFriend = true %>
+            <% } %>
+            <% } %>
+            <% if(isFriend){%>
+              <%my_friend=true%>
+              <button><a class="remove_friend" href="/friends/remove-friend/?id=<%=profile_user.id %>/<%=chatname%>">
+              Remove Friend
+              </a></button>   
+              <% }else{%>
+                <%if(found==true){%>
+            <span class="pending">Pending</span>
+            <%}else{%>
+          <button><a class="toggle-friend-btn" href="/friends/request-friend/?id=<%=profile_user.id %>">
+            send Request
+          </a></button> 
+          <%}%>
+          <%}%>
+          <% }%>
+        </div>   
+          <%}%>
+       
+       
+          <div id="social_info">
+          <span><%=count%> Posts</span>
+          <% if(user.id == profile_user.id){%>
+            <!--if user matches then show the form -->
+            <a href="/friends/display-request">
+             <%=user.friend_request.length%> Requests
+            </a> 
+            <a href="/friends/display-friend">
+              <%=user.friends.length%> Friends
+            </a>
+            <%}else{%>
+             <span><%=profile_user.friends.length%> Friends</span>
+              <%}%>
+        </div>
+        <div id="email">
+          <p><%=profile_user.email%></p>
+        </div>
+        <%if(user.id!=profile_user.id){%>
+        <div id="about">
+          <%if(profile_user.about!="undefined"){%>
+          <p><%=profile_user.about%></p>
+          <%}%>
+        </div>
+        <%}%>
+      </div>
+    </section>
+    <%if(profile_user.id==user.id || my_friend==true){%>
+    <section id="my_posts">
+      <% for (post of posts){%>
+        <%if(post.user.email==profile_user.email){%> 
+      <div class="post">
+        <%if(post.typepv=='Image'){%>
+          <img src="<%=post.postPath %>">
+        <%}%>
+        <%if(post.typepv=='Video'){%>
+          <video src="<%=post.postPath %>"controls width="20px"></video>
+        <%}%>
+        <div class="post_info">
+        <i class="fa fa-heart fa-lg " aria-hidden="true"  style="color:white;"></i> <span style="margin-right: 25px; color: white; font-weight: bold;"><%= post.likes.length %></span>
+        <a href="/comments/display/<%=post.id%>"><i class="fa fa-comment fa-lg" aria-hidden="true" style="color:white; "></i></a> <span style="color: white; font-weight: bold;"><%= post.comments.length %></span>
+        </div>
+      </div>
+      <%}%>
+      <%}%>
+    </section>
+    <%}else{%>
+      <p id="friend_info" style="margin-left: 15%; margin-top: 5%; font-size: 30px;">
+      You are not friends yet . Become friends to see photos and videos!!!
+    </p>
+      <%}%>
+    

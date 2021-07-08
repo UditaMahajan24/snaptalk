@@ -1,18 +1,72 @@
-<header>
-    <h1>codeial</h1>
-    <ul>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <nav class="barmade">
         <% if(locals.user){%>
-            <li><a href="/user/profile/<%=user.id %>"><%=user.name%> </a></li>
-            <li><a href="/user/sign-out"> Sign-out</a>
-            </li>
-        <% }else{ %>
-            <li>
-                <a href="/user/sign-in">Sign-in</a>
-            </li>
-            <li>
-                <a href="/user/sign-up">Sign-up</a>
-            </li>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Snap Talk</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+              <li><form action="/user/search" method="POST" id="head_form">
+                <div class="box">
+                <button type="submit"><i class="fa fa-search " aria-hidden="true" ></i></button>
+                <input type="text" name="friendname" placeholder="Search" class="search-input" autocomplete="off"  style="color: black;"required>
+                </div>
+            </form></li>
+            <li><a href="/home"><i class="material-icons" style="font-size: 30px;">home</i></a></li>
+            <li> <a href="/posts/create-post">
+                <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" style="font-weight:bolder; font-size: 25px; "></i> 
+            </a></li>
+            <li><a href="/friends/display-friend">
+                <i class="material-icons" style="font-size: 30px;">group</i></a>
+              </a></li>
+            <li><a href="/user/profile/<%=user.id %>">
+                <%if(user.avtar==undefined){%>
+                    <img class="my_img" src="/images/my_image.png" width="35" class="profile">
+                    <% }else{%>
+                     <img class="my_img" src="<%=user.avtar%>" width="35" class="profile">
+                     <%}%>
+            </a></li>
+            <li><a href="/user/sign-out">Sign-out</a>  </li>
+          </ul>
+        </div>
+      </nav>
+    <%}%>
+    
+    <% if(locals.user){%>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/home"><i class="material-icons">home</i> Home</a></li>
+        <li> <a href="/posts/create-post">
+            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" style="font-weight:bolder;"></i>  Post
+        </a> </li>
+        <li><a href="/friends/display-friend">
+            <i class="material-icons">group</i> Friends</a>
+          </a></li>
+        <li><a href="/user/profile/<%=user.id %>">
+            <%if(user.avtar==undefined){%>
+                <img src="/images/my_image.png" width="25" style="border-radius: 100%;">
+                <% }else{%>
+                 <img src="<%=user.avtar%>" width="25"  style="border-radius: 100%;">
+                 <%}%> <p id="profile" style="display:inline;margin-left: 24px; text-align: center; margin-top:-3px;">Profile</p></a></li>
+        <li><form action="/user/search" method="POST" id="form2">
+            <div class="box">
+            <button type="submit"><i class="fa fa-search " aria-hidden="true" ></i></button>
+            <input type="text" name="friendname" placeholder="Search" class="search-input" autocomplete="off"  style="color: black;"required>
+            </div>
+        </form></li>
+        <li><a href="/user/sign-out">Sign-out</a></li>
+      </ul>
+      <%}%>             
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
 
-        <% } %>
-    </ul>
-</header>
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
+</script>

@@ -1,0 +1,112 @@
+<%- include('_header');%>
+<link rel="stylesheet" href="/css/friendlist.css">
+ <section id="friend">
+  <h3> Friends </h3>
+  <% if(user.friends.length == 0) {%>
+    <div class="no-friends">No friends found!</div>
+    <% } else{%>
+   <div id="friend_img">
+     <p>Friends</p>
+   </div>
+   <%var rooms=[]%>
+   <%var i=0%>
+   <% for(chat of chatroom){ %>
+    <% for(chatbox of user.chatroom){ %>
+      <% if(chat._id.equals(chatbox._id)){%>
+        <%rooms[i]=chat.id%>
+        <%i++%>
+        <%break%>
+        <%}%>
+        <%}%>
+        <%}%>
+        <section id="my_friends">
+        <%for(room of rooms) {%>
+          <% var chatname=null%>
+          <% for(friends of user.friends){ %>
+            <%if(friends.from_user.name==user.name){%>
+              <% for(chatbox of friends.to_user.chatroom){ %>
+                <% if(chatbox.id==room){%>
+                  <%chatname=chatbox.name%>
+                  <div>
+                    <div class="image">
+                  <%if(friends.to_user.avtar==undefined){%>
+                    <img src="/images/my_image.png">
+                    <% }else{%>
+                    <img src="<%=friends.to_user.avtar%>">
+                     <%}%> 
+                     </div>
+                  <a class="friends-item" href="/user/profile/<%=friends.to_user._id%>"><%= friends.to_user.name %></a>
+                <button><a href="/friends/chatbox?name=<%=friends.to_user.name%>/<%=chatname%>">Message</a></button>
+                  </div>
+                <%break%>
+                  <%}%>
+                <%}%>
+              <%}%>
+              <%if(friends.to_user.name==user.name){%>
+                  <% for(chatbox of friends.from_user.chatroom){ %>
+                    <% if(chatbox.id==room){%>
+                      <%chatname=chatbox.name%>
+                      <div>
+                      <%if(friends.from_user.avtar==undefined){%>
+                        <div class="image"><img src="/images/my_image.png" width="80"></div>
+                        <% }else{%>
+                          <div class="image"><img src="<%=friends.from_user.avtar%>" width="80"></div> 
+                         <%}%>
+                      <a class="friends-item" href="/user/profile/<%=friends.from_user._id%>"><%= friends.from_user.name %></a>
+                    <button><a href="/friends/chatbox?name=<%=friends.from_user.name%>/<%=chatname%>">Message</a></button>
+                  </div>
+                    <%break%>
+                      <%}%>
+                    <%}%>
+                  <%}%>
+                  <%if(chatname!=undefined){%>
+                    <%break%>
+                    <%}%>
+          <%}%>
+          <%}%>
+        </section>
+
+
+      <!-- <section id="my_friends">
+           <% for(friends of user.friends){ %>
+                <% var chatname=null%>
+                <% for(chatroom of friends.from_user.chatroom){ %>
+                <% let found=false%>
+                <% for(chatbox of friends.to_user.chatroom){ %>
+                  <% if(chatbox._id.equals(chatroom._id)){%>
+                    <%chatname=chatroom.name%>
+                    <% found=true%>
+                    <%break%>
+                  <% } %>
+                   <% } %>
+                   <% if(found==true){%>
+                     <%break%>
+                     <% } %>
+                   <% } %>   
+              <%if(friends.from_user.id == user.id) {%>
+                <div>
+                  <%if(friends.to_user.avtar==undefined){%>
+                    <div class="image"><img src="/images/my_image.png" width="80"></div>
+                    <% }else{%>
+                      <div class="image"><img src="<%=friends.to_user.avtar%>" width="80"></div> 
+                     <%}%> 
+                 <a class="friends-item" href="/user/profile/<%=friends.to_user._id%>"><%= friends.to_user.name %></a>
+                <button><a href="/friends/chatbox?name=<%=friends.to_user.name%>/<%=chatname%>">message friend</a></button>   
+                    </div>
+                <%}%>
+                <% if(friends.to_user.id == user.id) {%>
+                  <div>
+                    <%if(friends.from_user.avtar==undefined){%>
+                      <div class="image"><img src="/images/my_image.png" width="60"></div>
+                      <% }else{%>
+                        <div class="image"><img src="<%=friends.from_user.avtar%>" width="60"></div> 
+                       <%}%>
+                  <a class="friends-item" href="/user/profile/<%=friends.from_user._id%>"><%= friends.from_user.name %></a>
+                  <button><a href="/friends/chatbox?name=<%=friends.from_user.name%>/<%=chatname%>">message friend</a></button> 
+                  </div>
+                  <%}%>
+                <% } %>
+                <%}%>
+              </section>
+                -->
+        </section>

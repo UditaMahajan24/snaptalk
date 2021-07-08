@@ -1,0 +1,57 @@
+<%- include('_header');%>
+<link rel="stylesheet" href="/css/comment.css">
+<section id="comments">
+    <h1>
+        Comments
+    </h1>
+    <div class="comment_display">
+    <div id="my_post">
+        <%if(post.typepv=='Image'){%>
+            <img src="<%=post.postPath %>">
+          <%}%>
+          <%if(post.typepv=='Video'){%>
+            <video src="<%=post.postPath %>"controls></video>
+          <%}%>
+    </div>
+<div id="display">
+  <%if(post.comments.length==0){%>
+    <p>No comments found !!!</p>
+  <%}%>
+<% for(let i=post.comments.length-1;i>=0;i--){%>
+  <% let found=false%>
+<% for(like of post.comments[i].likes){ %>
+      <% if(like.user==locals.user.id){%>
+        <% found=true%>
+        <%break%>
+      <% } %>
+      <%}%>
+<li>
+      <div id="content">
+        <% if(locals.user&& locals.user.id==post.comments[i].user.id ||locals.user.id==post.user.id){%>
+            <a class="delete-comment-button" href="/comments/destroy/<%=post.comments[i].id%>">X</a> 
+            <%}%>
+          <span><%=post.comments[i].content%></span>
+        </div>
+        <div id="likes">
+            <%=post.comments[i].user.name%>
+            <a style="text-decoration: none; color:black" class="toggle-like-button" data-likes="<%=post.comments[i].likes.length %>" href="/likes/toggle/?id=<%=post.comments[i]._id%>&type=Comment">
+                <% if(found==true){%>
+                <i class="fa fa-heart" aria-hidden="true"  style="color:red;"></i> <span><%= post.comments[i].likes.length %> </span>
+                    <% }else{%>
+                <i class="fa fa-heart-o " aria-hidden="true" style="font-weight:bolder;"></i> <span><%=post.comments[i].likes.length %> </span>
+                <% } %>
+            </a>
+        </div>
+</li>
+<%}%>
+</div>
+</div>
+</section>
+
+<script src="/js/toggle_likes.js"></script> 
+<script> 
+    $('.toggle-like-button').each(function(){ 
+       let self = this; 
+        let toggleLike = new ToggleLike(self); 
+    }); 
+</script> 

@@ -1,3 +1,251 @@
-body {
-  background-color: aqua;
-  height: 100%; }
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+#profile-container {
+  padding-top: 10%;
+  padding-left: 15%;
+  background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+  min-height: 600px; }
+  #profile-container #profile {
+    width: 100%; }
+    #profile-container #profile .my_profile {
+      display: inline-block;
+      width: 30%; }
+      #profile-container #profile .my_profile img {
+        border-radius: 100px;
+        width: 200px; }
+    #profile-container #profile .info {
+      display: inline-block;
+      width: 40%;
+      vertical-align: top; }
+      #profile-container #profile .info #name {
+        font-size: 50px;
+        display: inline;
+        margin-right: 4%;
+        font-family: sans-serif; }
+      #profile-container #profile .info a {
+        text-decoration: none; }
+        #profile-container #profile .info a button {
+          margin-top: 3%;
+          vertical-align: top;
+          background-image: url("/images/4K-3.jpg");
+          background-size: cover;
+          border-radius: 5px;
+          outline: none;
+          margin-right: 2%; }
+        #profile-container #profile .info a i {
+          vertical-align: top;
+          margin-top: 4%;
+          color: black; }
+      #profile-container #profile .info .btn-grp {
+        display: inline; }
+        #profile-container #profile .info .btn-grp button {
+          margin-top: 3%;
+          vertical-align: top;
+          background-image: url("/images/4K-3.jpg");
+          background-size: cover;
+          border-radius: 5px;
+          outline: none; }
+          #profile-container #profile .info .btn-grp button a {
+            color: black;
+            font-size: larger; }
+      #profile-container #profile .info #social_info {
+        margin-top: 3%; }
+        #profile-container #profile .info #social_info span {
+          color: black;
+          font-size: 20px;
+          margin-right: 2%; }
+        #profile-container #profile .info #social_info a {
+          text-decoration: none;
+          color: black;
+          font-size: 20px;
+          margin-right: 2%; }
+      #profile-container #profile .info #email {
+        margin-top: 5%;
+        font-size: 20px; }
+      #profile-container #profile .info #about {
+        font-size: 22px;
+        font-weight: 600px; }
+  #profile-container #my_posts {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-top: 10%;
+    flex-wrap: wrap;
+    align-content: space-around; }
+    #profile-container #my_posts div {
+      width: 30%;
+      margin-right: 2%;
+      margin-bottom: 3%;
+      position: relative; }
+      #profile-container #my_posts div img {
+        width: 100%;
+        height: 260px; }
+      #profile-container #my_posts div div {
+        position: absolute;
+        top: 40%;
+        left: 35%;
+        visibility: hidden; }
+    #profile-container #my_posts .post:hover img {
+      opacity: 0.3; }
+    #profile-container #my_posts .post:hover .post_info {
+      visibility: visible; }
+  @media screen and (max-width: 1200px) {
+    #profile-container #profile .my_profile img {
+      border-radius: 100px;
+      width: 160px; }
+    #profile-container #profile .info #name {
+      font-size: 40px; }
+    #profile-container #profile .info a button {
+      font-size: 10px; }
+    #profile-container #profile .info .btn-grp button a {
+      color: black;
+      font-size: 10px; }
+    #profile-container #profile .info #social_info span {
+      font-size: 15px; }
+    #profile-container #profile .info #social_info a {
+      font-size: 15px; }
+    #profile-container #profile .info #email {
+      font-size: 15px; }
+    #profile-container #profile .info #about {
+      font-size: 20px; } }
+  @media screen and (max-width: 960px) {
+    #profile-container .info {
+      margin-left: 3%; }
+    #profile-container #my_posts div {
+      width: 40%;
+      margin-right: 2%;
+      margin-bottom: 3%;
+      position: relative; } }
+  @media screen and (max-width: 800px) {
+    #profile-container #profile .my_profile {
+      width: 25%; }
+      #profile-container #profile .my_profile img {
+        border-radius: 100px;
+        width: 150px; }
+    #profile-container #profile .info {
+      width: 60%;
+      margin-left: 5%; }
+      #profile-container #profile .info #name {
+        font-size: 35px; }
+    #profile-container #profile #my_posts div {
+      width: 45%; } }
+  @media screen and (max-width: 700px) {
+    #profile-container {
+      padding-top: 13%;
+      padding-left: 6%; }
+      #profile-container #profile {
+        margin-left: 3%; }
+        #profile-container #profile .my_profile {
+          width: 25%; }
+          #profile-container #profile .my_profile img {
+            border-radius: 100px;
+            width: 130px; }
+        #profile-container #profile .info {
+          width: 60%;
+          margin-left: 5%; }
+          #profile-container #profile .info #name {
+            font-size: 35px; }
+      #profile-container #my_posts div {
+        width: 46%; }
+      #profile-container #my_posts .post .post_info {
+        width: 50%;
+        left: 20%; } }
+  @media screen and (max-width: 600px) {
+    #profile-container {
+      padding-top: 13%;
+      padding-left: 4%; }
+      #profile-container #profile {
+        margin-left: 0%; }
+        #profile-container #profile .my_profile {
+          width: 20%; }
+          #profile-container #profile .my_profile img {
+            border-radius: 100px;
+            width: 120px; }
+        #profile-container #profile .info {
+          margin-left: 8%;
+          width: 70%; }
+      #profile-container #my_posts {
+        margin-left: 0%;
+        width: 100%; }
+        #profile-container #my_posts div {
+          width: 45%; }
+        #profile-container #my_posts .post .post_info {
+          width: 50%;
+          left: 20%; } }
+  @media screen and (max-width: 480px) {
+    #profile-container {
+      padding-top: 16%;
+      padding-left: 4%; }
+      #profile-container #profile {
+        margin-left: 0%; }
+        #profile-container #profile .my_profile {
+          width: 20%; }
+          #profile-container #profile .my_profile img {
+            border-radius: 100px;
+            width: 80px; }
+        #profile-container #profile .info {
+          margin-left: 8%;
+          width: 70%; }
+          #profile-container #profile .info #name {
+            font-size: 30px; }
+          #profile-container #profile .info a button {
+            font-size: 8px; }
+          #profile-container #profile .info .btn-grp button a {
+            color: black;
+            font-size: 8px; }
+          #profile-container #profile .info #social_info span {
+            font-size: 13px; }
+          #profile-container #profile .info #social_info a {
+            font-size: 13px; }
+          #profile-container #profile .info #email {
+            font-size: 13px; }
+          #profile-container #profile .info #about {
+            font-size: 15px; }
+      #profile-container #my_posts {
+        margin-left: 0%;
+        width: 100%; }
+        #profile-container #my_posts div {
+          width: 45%; }
+        #profile-container #my_posts .post img, #profile-container #my_posts .post video {
+          height: 240px; }
+        #profile-container #my_posts .post .post_info {
+          width: 60%;
+          left: 10%; } }
+  @media screen and (max-width: 370px) {
+    #profile-container {
+      padding-top: 25%;
+      padding-left: 4%; }
+      #profile-container #profile {
+        margin-left: 0%; }
+        #profile-container #profile .my_profile {
+          width: 20%; }
+          #profile-container #profile .my_profile img {
+            border-radius: 100px;
+            width: 80px; }
+        #profile-container #profile .info {
+          margin-left: 12%;
+          width: 65%; }
+          #profile-container #profile .info #name {
+            font-size: 25px; }
+          #profile-container #profile .info a button {
+            font-size: 8px; }
+          #profile-container #profile .info .btn-grp button a {
+            color: black;
+            font-size: 8px; }
+          #profile-container #profile .info #social_info span {
+            font-size: 10px; }
+          #profile-container #profile .info #social_info a {
+            font-size: 10px; }
+          #profile-container #profile .info #email {
+            font-size: 10px; }
+          #profile-container #profile .info #about {
+            font-size: 15px; }
+      #profile-container #my_posts {
+        margin-left: 0%;
+        width: 100%; }
+        #profile-container #my_posts div {
+          width: 47%; }
+        #profile-container #my_posts .post img, #profile-container #my_posts .post video {
+          height: 180px; }
+        #profile-container #my_posts .post .post_info {
+          width: 80%;
+          left: 3%; } }

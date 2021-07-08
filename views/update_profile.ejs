@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/update.css">
+ <section id="profile">
+    <p>Update Profile</p>
+     <div id="container">
+    <div id="image-container">
+        <%if(user.avtar==undefined){%>
+            <img src="/images/my_image.png">
+            <% }else{%>
+             <img src="<%=user.avtar%>">
+             <%}%> 
+    </div>
+<form action="/user/update/<%= user.id %>" enctype="multipart/form-data" method="POST">
+    <input type="file"  name="avtar" id="avtar" placeholder="profile picture" autocomplete="off"><br>
+    <label for="name">Name</label><br>
+    <input type="text" name="name" id="name" placeholder="your name.." value="<%= user.name%>" autocomplete="off"><br>
+    <label for="name">Email</label><br>
+    <input type="email" name="email" id="email" placeholder="your email.." value="<%= user.email%>" autocomplete="off"><br>
+    <label for="about">About</label><br>
+    <input type="text" name="about" placeholder="About yourself" value="<%=user.about%>" autocomplete="off"><br>
+    <%if(user.dateofbirth==undefined){%>
+    <label for="date">Date of birth</label><br>
+    <input type="text" name="dob" value="" placeholder="DD/MM/YYYY" value="<%=user.dateofbirth%>" autocomplete="off">
+    <%}%>
+    <input type="submit" value="Update">
+  </form>
+  </div>
+  </section>

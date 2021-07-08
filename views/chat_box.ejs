@@ -1,0 +1,31 @@
+<%- include('_header');%>
+<link rel="stylesheet" href="/css/chat_box.css">
+<section id="main_div">
+	<h1>Chat-Box</h1>
+<% if (locals.user){ %>
+	<div id="user-chat-box">
+		<p id="name"><%=name%></p>
+		<ul id="chat-messages-list">
+			<li class="other-message">	
+			</li>
+			<li class="self-message">
+			</li>
+		</ul>
+		<div id="chat-message-input-container">
+			<input id="chat-message-input" style="background-color: white;" placeholder="Type message here">
+			<button id="send-message">Send</button>
+		</div>
+	</div>
+<% } %>
+</section>
+<script>
+	var objDiv = document.getElementById("my_message");
+    objDiv.scrollTop = objDiv.scrollHeight;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+      <script src="/js/chat_engine.js"></script>
+      <% if(locals.user){ %>
+        <script>
+            new chatEngine('user-chat-box','<%=locals.user.email %>','<%=chatroom%>')
+        </script>
+        <%}%>

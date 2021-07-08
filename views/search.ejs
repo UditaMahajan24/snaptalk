@@ -1,0 +1,29 @@
+<%- include('_header');%>
+<link rel="stylesheet" href="/css/search.css">
+<section id="search">
+   <h1>
+      Search Results
+  </h1>
+   <div class="search_result">
+<%if(result.length==0){%>
+   <p style="font-size: 30px;margin-left: 30%; margin-top: 25%;">No user found !!!</p>
+<%}%>
+<% for(u of result) { %> 
+   <div class="result">
+    <div>
+      <%if(u.avtar==undefined){%>
+         <img src="/images/my_image.png" >
+         <% }else{%>
+            <img src="<%=u.avtar%>"alt="<%=u.name%>"> 
+          <%}%> 
+    </div>
+    <div id="name">
+    <a href="/user/profile/<%=u.id %>"><%=u.name%></a>
+    </div>
+    <div id="email">
+      <a href="/user/profile/<%=u.id %>"><%=u.email%></a>
+    </div>
+   </div>
+    <%}%>
+   </div>
+   </section>

@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+#main_div {
+  width: 100%;
+  padding-top: 2%;
+  padding-left: 25%;
+  min-height: 100vh;
+  background-image: url("/images/4K-3.jpg");
+  background-size: cover; }
+  #main_div ::-webkit-scrollbar {
+    width: 10px;
+    border: 1px solid #6BBBFF; }
+  #main_div ::-webkit-scrollbar-thumb {
+    background-color: #6BBBFF; }
+  #main_div h1 {
+    padding-top: 3%;
+    margin-left: 24%;
+    font-size: 60px;
+    font-family: Lobster;
+    font-weight: 400;
+    margin-bottom: 3%;
+    color: #1fa3bb; }
+  #main_div #user-chat-box {
+    border: 1px dashed gre;
+    height: 400px;
+    width: 67%;
+    min-height: 60%;
+    max-height: 70%;
+    padding: 5px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%); }
+    #main_div #user-chat-box #name {
+      color: white;
+      width: 40%;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      font-size: large;
+      font-weight: 500;
+      margin-left: 4px;
+      min-height: 10%;
+      overflow: hidden; }
+    #main_div #user-chat-box #chat-messages-list {
+      list-style: none;
+      padding: 10px;
+      height: 70%;
+      overflow-y: auto; }
+      #main_div #user-chat-box #chat-messages-list .other-message {
+        text-align: left;
+        padding: 5px; }
+        #main_div #user-chat-box #chat-messages-list .other-message span {
+          display: inline-block;
+          padding: 15px;
+          background-color: #05b3b3; }
+      #main_div #user-chat-box #chat-messages-list .self-message {
+        text-align: right;
+        padding: 5px; }
+        #main_div #user-chat-box #chat-messages-list .self-message span {
+          display: inline-block;
+          padding: 15px;
+          background-color: #46b5c9; }
+    #main_div #user-chat-box #chat-message-input-container {
+      height: 22%;
+      width: 100%;
+      display: flex;
+      flex-direction: row; }
+      #main_div #user-chat-box #chat-message-input-container #chat-message-input {
+        height: 50%;
+        width: 90%; }
+      #main_div #user-chat-box #chat-message-input-container #send-message {
+        height: 50%;
+        width: 10%;
+        font-size: 25px;
+        color: white;
+        border: none;
+        background: #139cb4; }
+  @media screen and (max-width: 1270px) {
+    #main_div {
+      padding-left: 20%; }
+      #main_div #user-chat-box {
+        width: 75%; } }
+  @media screen and (max-width: 1126px) {
+    #main_div {
+      padding-left: 10%; }
+      #main_div #user-chat-box {
+        width: 90%; } }
+  @media screen and (max-width: 776px) {
+    #main_div {
+      padding-left: 5%; } }
+  @media screen and (max-width: 700px) {
+    #main_div {
+      padding-left: 3%; }
+      #main_div #user-chat-box {
+        width: 95%; } }
+  @media screen and (max-width: 650px) {
+    #main_div {
+      padding-left: 3%; }
+      #main_div h1 {
+        display: none; }
+      #main_div #user-chat-box {
+        margin-top: 13%;
+        height: 500px; }
+        #main_div #user-chat-box #chat-message-input-container {
+          height: 25%;
+          width: 100%; }
+          #main_div #user-chat-box #chat-message-input-container #chat-message-input {
+            height: 50%;
+            width: 90%; }
+          #main_div #user-chat-box #chat-message-input-container #send-message {
+            height: 50%;
+            width: 10%;
+            font-size: 20px;
+            color: white;
+            border: none;
+            background: #139cb4; } }
+  @media screen and (max-width: 570px) {
+    #main_div {
+      padding-left: 2%; }
+      #main_div #user-chat-box {
+        width: 98%; }
+        #main_div #user-chat-box #chat-message-input-container {
+          height: 25%;
+          width: 100%; }
+          #main_div #user-chat-box #chat-message-input-container #chat-message-input {
+            height: 50%;
+            width: 90%; }
+          #main_div #user-chat-box #chat-message-input-container #send-message {
+            height: 50%;
+            width: 10%;
+            font-size: 15px;
+            color: white;
+            border: none;
+            background: #139cb4; } }
+  @media screen and (max-width: 460px) {
+    #main_div {
+      padding-left: 2%; }
+      #main_div #user-chat-box {
+        margin-top: 16%;
+        width: 98%; }
+        #main_div #user-chat-box #chat-message-input-container {
+          height: 25%;
+          width: 100%; }
+          #main_div #user-chat-box #chat-message-input-container #chat-message-input {
+            height: 50%;
+            width: 85%; }
+          #main_div #user-chat-box #chat-message-input-container #send-message {
+            height: 50%;
+            width: 15%;
+            font-size: 12px;
+            color: white;
+            border: none;
+            background: #139cb4; } }
+  @media screen and (max-width: 390px) {
+    #main_div {
+      padding-left: 2%; }
+      #main_div #user-chat-box {
+        margin-top: 18%; } }
+  @media screen and (max-width: 350px) {
+    #main_div {
+      padding-left: 2%; }
+      #main_div #user-chat-box {
+        margin-top: 23%; }
+        #main_div #user-chat-box #chat-message-input-container {
+          margin-bottom: 0%;
+          height: 23%; } }

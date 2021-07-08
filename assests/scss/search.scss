@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster'); 
+#search{
+    min-height:730px;
+    place-items:center;
+    padding-top:5%;
+background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+h1{
+margin-left: 40%;
+font-size: 50px;
+font-family: Lobster;
+font-weight:200px;
+font-style: normal;
+}
+::-webkit-scrollbar{width:10px;border:1px solid #3c9bee};
+::-webkit-scrollbar-thumb{background-color: #70b1e9 };
+.search_result
+{
+    width:50%;
+    height:60%;
+    margin-left: 30%;
+    margin-top: 4%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    padding-top: 1%;
+    overflow-y:auto;
+    overflow-x: hidden;
+    .result{
+        width:100%;
+        margin-top: 2%;
+        display:flex;
+    }
+    div{
+        margin-left: 2%;
+        img{
+            width:70px;
+            border-radius: 100%;
+        }
+    }
+    #name,#email{
+        padding-top:3%;
+        font-size: 25px;
+        font-family:sans-serif; 
+
+        a{
+            color:black;
+           
+        }
+    }
+}
+@media screen and (max-width:1300px){
+    .search_result{
+        width:60%;
+        margin-left: 25%;
+    }
+}
+@media screen and (max-width:1200px){
+    .search_result{
+        width:65%;
+        margin-left: 20%;
+    }
+}
+@media screen and (max-width:1000px){
+    .search_result{
+        width:70%;
+        margin-left: 15%;
+    }
+}
+@media screen and (max-width:900px){
+    h1{
+        margin-left: 35%;
+        font-size: 45px;
+    }
+    .search_result{
+        width:80%;
+        margin-left:10%;
+    }
+}
+@media screen and (max-width:790px){
+    
+    .search_result{
+        width:90%;
+        margin-left:5%;
+        div{
+            img{
+                width:60px;
+            }
+        }
+    }
+}
+@media screen and (max-width:670px){
+    h1{
+        margin-left: 30%;
+        font-size: 40px;}
+    .search_result{
+        width:94%;
+        margin-left:3%;
+        div{
+            img{
+                width:55px;
+                border-radius: 100%;
+            }
+        }
+        #name,#email{
+            font-size: 20px;
+            font-family:sans-serif; 
+        }
+
+    }
+}
+@media screen and (max-width:500px){
+    h1{
+        margin-left:25%;
+        font-size: 35px;
+    }
+    .search_result{
+        width:96%;
+        margin-left:2%;
+        div{
+            img{
+                width:45px;
+                border-radius: 100%;
+            }
+        }
+        #name,#email{
+            font-size: 15px;
+            font-family:sans-serif; 
+        }
+    }
+}
+@media screen and (max-width:480px){
+    padding-top:7%;
+    h1{
+        margin-left:25%;
+        font-size: 25px;
+    }
+    .search_result{
+        width:96%;
+        margin-left:2%;
+        div{
+            img{
+                width:40px;
+                border-radius: 100%;
+            }
+        }
+        #name,#email{
+            font-size: 10px;
+            font-family:sans-serif; 
+        }
+    }
+}
+@media screen and (max-width:290px){
+    padding-top:15%;}
+}
