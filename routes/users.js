@@ -17,7 +17,7 @@ router.get('/sign-out',usercontroller.destroySession);
 router.post('/search',usercontroller.findUser);
 
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));// route to ask info from user
-router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/user/sign-in'}),usercontroller.createSession);
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/'}),usercontroller.createSession);
 router.get('/check',usercontroller.check);
 router.post('/verify',usercontroller.verify);
 router.get('/reset-password',usercontroller.resetPage);

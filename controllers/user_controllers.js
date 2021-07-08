@@ -169,9 +169,9 @@ module.exports.create=function(req,res){
 
 // for getting data of sign in
 module.exports.createSession=async function(req,res){
-    req.flash('success','Logged in successfuly');
+    //req.flash('success','Logged in successfuly');
     try{
-    let user= await User.findOne({email: req.body.email});
+    let user= await User.findOne({email:req.user.email});
     console.log(user);
     if(user.about==undefined){
       return res.redirect('/user/Profile-Update/'+req.user._id);
