@@ -67,7 +67,7 @@ app.use(passport.setAuthenticatedUser);// to send the data of user to views page
 //use express router
 app.use(flash());// using flash to display notifications
 app.use(Customware.setFlash);
-app.use('/', require('./routes/index'));
+app.use('/',require('./routes'));
 
 const server = app.listen(process.env.PORT||8000,()=>{console.log("Server successfully has Started!")});
 require("./config/chat_sockets").chatSockets(server);

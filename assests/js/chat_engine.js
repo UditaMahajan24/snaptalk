@@ -4,7 +4,7 @@ class chatEngine{
         this.chatBox=$(`#${chatBoxId}`);
         this.userEmail=userEmail;
         this.chatroom=chatroom;
-        this.socket=io.connect('https://snap-talk.herokuapp.com/',{transports: ['websocket', 'polling', 'flashsocket']});
+        this.socket=io.connect('https://snap-talk.herokuapp.com',{transports: ['websocket', 'polling', 'flashsocket']});
         if(this.userEmail)
         this.connectionHandler();
     }

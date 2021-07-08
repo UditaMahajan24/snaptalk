@@ -12,10 +12,16 @@ const cloudinary=require('../config/cloud');
 
 module.exports.login=async function(req,res)
 {
+    try{
     res.render('login_form',{
         title:"login page",
         deleted:true
     });
+}
+catch(err)
+{
+    return;
+}
 }
 module.exports.profile= async function(req,res){
    let loguser=await User.findById(req.user._id)
