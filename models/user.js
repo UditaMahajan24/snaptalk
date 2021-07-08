@@ -26,9 +26,6 @@ avtar:{
 avtar_id:{
 type:String
 },
-dateofbirth:{
-type:String
-},
 friend_request:[
   {
     type : mongoose.Schema.Types.ObjectId,

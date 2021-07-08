@@ -76,10 +76,6 @@ module.exports.update=async function(req,res){
                user.name=req.body.name;
                user.email=req.body.email;
                user.about=req.body.about;
-               if(req.body.dob!=undefined)
-               {
-               user.dateofbirth=req.body.dob;
-               }
                if(req.file){
                   // if(user.avtar)
                    //{
@@ -174,15 +170,22 @@ module.exports.create=function(req,res){
 // for getting data of sign in
 module.exports.createSession=async function(req,res){
     req.flash('success','Logged in successfuly');
+    try{
     let user= await User.findOne({email: req.body.email});
     console.log(user);
-    if(user.dateofbirth==undefined){
+    if(user.about==undefined){
       return res.redirect('/user/Profile-Update/'+req.user._id);
     }
     else
     {
     return res.redirect('/home');
     }
+}
+catch(err)
+{
+    console.log("error in google",err);
+    return;
+}
 }
 
 //for signing out

@@ -17,10 +17,6 @@
     <input type="email" name="email" id="email" placeholder="your email.." value="<%= user.email%>" autocomplete="off"><br>
     <label for="about">About</label><br>
     <input type="text" name="about" placeholder="About yourself" value="<%=user.about%>" autocomplete="off"><br>
-    <%if(user.dateofbirth==undefined){%>
-    <label for="date">Date of birth</label><br>
-    <input type="text" name="dob" value="" placeholder="DD/MM/YYYY" value="<%=user.dateofbirth%>" autocomplete="off">
-    <%}%>
     <input type="submit" value="Update">
   </form>
   </div>
