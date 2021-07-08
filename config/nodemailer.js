@@ -13,7 +13,6 @@ let transporter=nodemailer.createTransport({
         pass:process.env.pass
     }
 });
-
 let renderTemplate=(data, relativePath)=>{
     let mailHTML;
     ejs.renderFile(
