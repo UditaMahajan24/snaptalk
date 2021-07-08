@@ -13,7 +13,7 @@ const cloudinary=require('../config/cloud');
 module.exports.login=async function(req,res)
 {
     try{
-    res.render('login_form',{
+    res.render('Login_form',{
         title:"login page",
         deleted:true
     });
